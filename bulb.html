@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>Document</title>
+ <style>
+    #da{
+background-color: aliceblue;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+    }
+    body{
+        background-color: black;
+    }
+ </style>
+
+</head>
+<body id = "gh">
+    <div id="da"></div>
+    <div>
+        <button onclick="onfun()">SwitchON</button>
+        <button onclick="offfun()">SwitchOFF</button>
+    <script>
+        function onfun(){
+            let on=document.getElementById("da");
+            on.style.backgroundColor="yellow";
+            on.style.boxShadow="0px 0px 80px red"
+            document.body.style.backgroundColor="aliceblue"
+            document.body.style.backgroundImage='url(https://images.pexels.com/photos/19670/pexels-photo.jpg?cs=srgb&dl=pexels-padrinan-19670.jpg&fm=jpg)'
+            document.body.style.size='cover'
+        }
+        function offfun(){
+            let on=document.getElementById("da");
+            on.style.backgroundColor="white";
+            on.style.boxShadow="0px 0px 80px white"
+            document.body.style.backgroundColor="black"
+            document.body.style.backgroundImage= 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAZlBMVEUAAAAFBQX///8ICAgNDQ0WFhYPDw8sLCwYGBhOTk4gICA1NTVjY2NgYGA4ODhERETExMQpKSlbW1vl5eVHR0fMzMxUVFQiIiLu7u6QkJB6enrd3d3z8/OCgoI+Pj6ioqK7u7twcHBNUioHAAAB90lEQVR4nO3ZyW7qQBBA0Z48T3jAkMmE///J19VtghdPyiqyo9yzALFAKl21bVQoBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgJ+j9x4A+P24jJ7015smS6B9iUC5gSgr/WjSXXOiRCGItVa9mFf5sPc8R7A2cepkTsoSJQinxDn1ZsbEEiWIxySxV/PeOYmy90AHsDYp342pU8dBUfFhLE0yY8xHEpoQJRwUly++ya3koESxyeSbfJYclJU0SQrf5HzJU85J4Cu4VM7JW++bEEWEi0fuJ2OWcENZ+SZanjvXLHXcUCKJUPomprLhVxtNYhNnxtF0iiaRDjuC8Xy+FsrGJkQJK7bT7XYenusU+Agf9/tLQ5MNrZaqKjqabOk8ScoyrqppEmknq6WvT3uOchhxBykt6LEhl8zz354/L8+qLFd27zGOZBnqppm7rN97kOPI7nXdzMVQzFNXpXtPcwztMDT1/bWuB29233/hD8i6Yp59jqZp6qagibi0S9dNUyGmhSbCP3Wqqm2XpW3bKqOJSC9932dBfylpImxePuR5wq8UodPEy+UlSVOaCO3SyAmaCG3dg+we9x7nGOwGu5MorAksO7YtvbH3LIdBkf/Q4W+evacAAAAAAAAAAADAr/UPZLgOaq7Mm/0AAAAASUVORK5CYII=)'
+            document.body.style.size='cover'
+        }
+    </script>
+    </div>
+</body>
+</html>
