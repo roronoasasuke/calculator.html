@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        'use strict'
+    let a=10;
+   // let b= a++;
+   let b = a++;
+    document.writeln("the value of b:"+ b +"<br>");
+    document.writeln("the value of a:"+ a +"<br>");
+    document.writeln(Number(false)+"<br>");
+    document.writeln(Number(true)+"<br>");
+    document.writeln(Number("10")+"<br>");
+    document.writeln(Number("10  ")+"<br>");
+    document.writeln(Number("10.33")+"<br>");
+    document.writeln(Number("10,33")+"<br>");
+    document.writeln(Number("10 33")+"<br>");
+    document.writeln(Number("gg")+"<br>");
+    document.writeln(Number.MAX_VALUE+"<br>");
+    document.writeln(Number.MIN_VALUE+"<br>");
+    //type coercion
+    document.writeln(+0 === -0 +"<br>");
+    document.writeln(Object.is(+0,-0) +"<br>");
+    document.writeln(NaN==NaN +"<br>");
+    document.writeln(Object.is(NaN , NaN) +"<br>");
+    /* //ternary operators
+   score = prompt(Number("Enter your score: \n"));
+    result = score>=90?"Wow you got A grade !":score>=80?"you got a B grade !":"you have to improve you got a C grade !";
+    document.writeln(result);*/
+    //date object
+    const d = new Date();
+    document.writeln("Month:"+d.getMonth()+"<br>");
+    document.writeln("day:"+d.getDay()+"<br>");
+    document.writeln("hours:"+d.getHours()+"<br>");
+    document.writeln("minutes:"+d.getMinutes()+"<br>");
+    document.writeln("year:"+d.getFullYear()+"<br>");
+    const sum = (a , b) => a + b;
+    document.writeln(sum(10, 10)+'<br>');
+    let person={name:"Giridhar",age:18};
+    let {name,age} = person;
+    document.writeln(name);
+
+    </script>
+</body>
+</html>
