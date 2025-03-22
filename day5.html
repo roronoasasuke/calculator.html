@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<!--<body id = "bd">-->
+    <body>
+        <div id="na"> </div>
+   <!--<button id="btn">Click</button>--->
+    <script>
+       'use strict';
+     /*   let a=BigInt;
+        let b=369;
+    document.writeln("type of a: "+typeof(a)+"<br>");
+    document.writeln(typeof("for expo: "b.toExponential())+"<br>");
+    document.writeln(b.toExponential(10)+"<br>");
+    let name = prompt("enter your name: ");
+    let greeting = `Hello ${name}!`;
+    document.writeln(greeting+"<br>");
+    //built-in math function
+    let c = 5.6;
+   document.writeln("rounding off the num : "+Math.round(c)+"<br>")
+   document.writeln("taking the highest num: "+Math.ceil(c)+"<br>")
+   document.writeln("taking the lowest num: "+Math.floor(c)+"<br>")
+   document.writeln("taking the same num: "+Math.trunc(c)+"<br>")
+   let d = -5.6;
+   document.writeln("taking the lowest num: "+Math.floor(d)+"<br>")
+   document.writeln("taking the same num: "+Math.trunc(d)+"<br>")
+   document.writeln("taking the absolute num: "+Math.abs(d)+"<br>")
+   document.writeln("taking the sqrt of num: "+Math.sqrt(100)+"<br>")
+   document.writeln("taking the pow for num: "+Math.pow(8,2)+"<br>")
+   document.writeln("taking the sign for num: "+Math.sign(-5.6)+"<br>")
+   document.writeln("taking the sign for num: "+Math.sign(0)+"<br>")
+   document.writeln("taking the sign for num: "+Math.sign(5.6)+"<br>")
+   document.writeln("taking the maximum num: "+Math.max(50,60)+"<br>")
+   document.writeln("taking the minimum num: "+Math.min(50,60)+"<br>")
+   document.writeln(Math.floor(Math.random()*10)+"<br>")
+   document.writeln(Math.ceil(Math.random()*10)+"<br>")
+   const randomnum = (min,max) => (Math.random()*(max-min))+min;
+   document.writeln(Math.trunc(randomnum(1,54))+"<br>")
+   document.writeln(Math.abs(Math.trunc(randomnum(-54,54)))+"<br>")
+   document.writeln(Math.sqrt(randomnum(1,54))+"<br>")
+    let j=  randomnum(1,54);
+   let i = Math.random()*10;
+   document.writeln(Math.trunc(Math.pow(j,i))+"<br>")*/  
+  /* function otp()
+   {
+    let x = (Math.floor(Math.random()*9999+1000))
+    document.writeln(`Hi! your otp is generated: ${x}`)
+   }
+   otp()
+   alert("hello")
+   confirm("can u watch this ?")
+   setInterval(function(){
+    document.writeln("Hello!")
+   },40);
+   window.clearInterval;
+   function repeat()
+   {
+    var da = new Date();
+    var x = document.getElementById("na");
+    x.innerHTML = da.getSeconds();
+   }
+   setInterval(repeat,100)*/
+  // let d = 10 ;
+ //  document.writeln(UpperCase().d);
+function add()
+{
+    let a = Number(prompt("Enter first number: "));
+    let b = Number(prompt("Enter second number: "));
+    let c = a + b;
+    if(c % 2===0)
+    {
+        document.writeln(`${c} is even`);
+    }
+    else
+    {
+        throw new Error(`${c} is not an even`);
+    }
+}
+function HandleData()
+{
+    try{
+        const result = add();
+        document.writeln(result);
+    }
+    catch(error){
+        document.writeln(`Error occured:  ${error.message}`);
+    }
+}
+HandleData();
+    </script>
+   
+</body>
+</html>
