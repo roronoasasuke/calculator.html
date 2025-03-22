@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        .gg {
+            display: flex;
+            align-items: flex-end;
+            text-align: center;
+            justify-content: center;
+            border: 2px dashed #e74c3c;
+            border-radius: 50%;
+            padding: 25px;
+            margin: 20px;
+            background: linear-gradient(to bottom, #ff9800, #f57c00);
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gg:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator {
+            background: linear-gradient(135deg, #f0f2f5, #e0e0e0);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            position: relative; /* For particle effect */
+        }
+
+        #display {
+            width: calc(100% - 10px);
+            height: 60px;
+            font-size: 32px;
+            text-align: right;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        button {
+            padding: 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(to bottom, #42a5f5, #1e88e5);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: linear-gradient(to bottom, #1e88e5, #1565c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .operator {
+            background: linear-gradient(to bottom, #ffc107, #ff9800);
+        }
+
+        .operator:hover {
+            background: linear-gradient(to bottom, #ff9800, #f57c00);
+        }
+
+        .clear {
+            background: linear-gradient(to bottom, #e57373, #d32f2f);
+        }
+
+        .clear:hover {
+            background: linear-gradient(to bottom, #d32f2f, #b71c1c);
+        }
+
+        .equal {
+            background: linear-gradient(to bottom, #4caf50, #2e7d32);
+        }
+
+        .equal:hover {
+            background: linear-gradient(to bottom, #2e7d32, #1b5e20);
+        }
+
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+            pointer-events: none;
+            animation: particle 1s linear infinite;
+        }
+
+        @keyframes particle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gg">
+        <h1>Calculate!</h1>
+    </div>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button class="operator">÷</button>
+            <button class="operator">×</button>
+            <button class="operator">-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operator">+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        const buttons = document.querySelectorAll('button');
+        const calculator = document.querySelector('.calculator');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                let value = button.textContent;
+
+                if (value === 'C') {
+                    display.value = '';
+                } else if (value === '=') {
+                    try {
+                        display.value = eval(display.value.replace('×', '*').replace('÷', '/'));
+                        createParticles(event);
+                    } catch (error) {
+                        display.value = 'Error';
+                    }
+                } else {
+                    display.value += value;
+                }
+                createParticles(event);
+            });
+        });
+
+        function createParticles(event) {
+            const particle = document.createElement('particle');
+            calculator.appendChild(particle);
+
+            const x = event.clientX - calculator.offsetLeft;
+            const y = event.clientY - calculator.offsetTop;
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            const size = Math.random() * 6 + 4;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            setTimeout(() => particle.remove(), 1000);
+        }
+    </script>
+</body>
+</html>
